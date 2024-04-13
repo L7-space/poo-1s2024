@@ -19,29 +19,20 @@ public static void main(String[] args) {
 
           switch (opcao) {
             case 1:
-             System.out.println("Adicionando livro");
-             int id;String titulo;String nomeAutor;String anoPublicacao;String editora;
-             System.out.println("Id: ");
-             id = sc.nextInt();
-             sc.nextLine();
-             System.out.println("Título");
-             titulo = sc.nextLine();
-             System.out.println("Autor");
-             nomeAutor = sc.nextLine();
-             System.out.println("Ano");
-             anoPublicacao = sc.nextLine();
-             System.out.println("Editora");
-             editora = sc.nextLine();
-
-                 livro l = new livro(id, titulo, nomeAutor, anoPublicacao, editora);
-                livraria.cadastrarlivro(l);
+           livro l = criarlivro(sc);
+            livraria.cadastrarlivro(l);
                 break;
-             case 2:
+             case 2: 
              System.out.println("Listando livro");
              System.out.println(livraria.listarlivros());
                 break;
              case 3:
              System.out.println("Detalhando livro");
+             int id;
+             System.out.println("ID");
+             id = sc.nextInt();
+             sc.nextLine();
+             System.out.println(livraria.detalharlivroPorID(id));
                 break;
              case 4:
              System.out.println("Encerrando o sistema");
@@ -50,8 +41,29 @@ public static void main(String[] args) {
             System.out.println("Opcao invalida");
                 break;
           }
-          sc.close();
+          
         }
-    }
+        sc.close();
+      }
+
+  public static livro criarlivro(Scanner sc){
+  System.out.println("Adicionando livro");
+  int id;String titulo;
+  String nomeAutor;String anoPublicacao;String editora;
+  System.out.println("Id: ");
+  id = sc.nextInt();
+  sc.nextLine();
+  System.out.println("Título");
+  titulo = sc.nextLine();
+  System.out.println("Autor");
+  nomeAutor = sc.nextLine();
+  System.out.println("Ano");
+  anoPublicacao = sc.nextLine();
+  System.out.println("Editora");
+  editora = sc.nextLine();
+
+ livro l = new livro(id, titulo,nomeAutor, anoPublicacao, editora);
+return l; 
+   }
+
 }
-  

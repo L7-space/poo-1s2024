@@ -14,13 +14,26 @@ public void cadastrarlivro(livro livros){
      this.livros.add(livros); 
   }
 public String listarlivros(){
-
- String listarlivros = "";
+String listarlivros = "";
  for (livro l : this.livros) {
     listarlivros += l.id + " - " + l.titulo + "\n";
  }
 return listarlivros;
 
+}
+
+public String detalharlivroPorID(int id){
+  String detalhelivro = "livro não encontrado.\n";
+
+
+for (livro livro : livros) {
+   if (livro.id == id){
+      detalhelivro = livro.toString();
+   }
+}
+
+
+  return detalhelivro;
 }
 
 }
